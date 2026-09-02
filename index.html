@@ -4,17 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>What Happens When You Visit a Website?</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
         <h1>What Happens When You Visit a Website? 🌐</h1>
-    </header>
-
-    <main>
         <p>
             Explore what happens behind the scenes when you enter a URL
             and visit a website. Follow the journey from your browser to the server and back.
         </p>
+    </header>
+
+    <main>
+        <section class="url-section">
+
+            <p>
+                Enter a URL below to begin exploring
+            </p>
+
+            <div class="url-input-container">
+                <input
+                    type="text"
+                    id="urlInput"
+                    placeholder="https://example.com"
+                    >
+
+                    <button id="exploreButton">Explore</button>
+            </div>
+        </section>
+        
+        <section id="journey" class="journey hidden">
+
+            <h2>Your Website Journey</h2>
+
+            <p id="selectedUrl"></p>
+
+            <div id="stage">
+                <h3 id="stageTitle"></h3>
+                <p id="stageDescription"></p>
+            </div>
+
+            <button id="nextButton">Next Step</button>
+
+        </section>
+
     </main>
+
+    <script src="script.js"></script>
+    
 </body>
 </html>
