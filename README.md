@@ -18,3 +18,8 @@ The Purpose of this project is to give an easier understanding on the process of
 - GitHub - Stores and manages all source code.
 - GitHub Pages - Used to deploy the project from a fully accesible Web URL
 - Chatgpt - Used as an assistant for brainstorming ideas, finding concepts, and troubleshooting.
+
+## Deployed Project
+
+Live Website:
+https://jamcgowe04.github.io/what-happens-when-you-visit-a-website/
