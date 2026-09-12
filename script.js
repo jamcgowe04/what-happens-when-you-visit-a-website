@@ -10,6 +10,8 @@ const stageDescription = document.getElementById("stageDescription");
 
 const nextButton = document.getElementById("nextButton");
 
+const backButton = document.getElementById("backButton");
+
 
 
 const stages = [
@@ -105,6 +107,13 @@ nextButton.addEventListener("click", function () {
     }
 });
 
+backButton.addEventListener("click", function () {
+
+    if (currentStage > 0) {
+        currentStage--;
+        showStage(currentStage);
+    }
+});
 
 
 
@@ -114,6 +123,12 @@ function showStage(stageNumber) {
 
     stageTitle.textContent = stage.title;
     stageDescription.textContent = stage.description;
+
+    if (stageNumber === 0) {
+        backButton.style.display = "none";
+    } else {
+        backButton.style.display = "block";
+    }
 
 
     nextButton.style.display = "block";
