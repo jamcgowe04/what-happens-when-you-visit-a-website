@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -9,6 +8,7 @@ body {
     font-family: "Segoe UI", Arial, sans-serif;
     min-height: 100vh;
     color: #ffffff;
+
     background:
         linear-gradient(rgba(0, 15, 35, 0.92), rgba(0, 5, 15, 0.97)),
         repeating-linear-gradient(
@@ -23,6 +23,7 @@ body {
             transparent 49px,
             rgba(0, 140, 255, 0.08) 50px
         );
+
     position: relative;
     overflow-x: hidden;
 }
@@ -33,12 +34,31 @@ body::before {
     inset: 0;
     pointer-events: none;
     opacity: 0.35;
+
     background:
-        linear-gradient(90deg, transparent 48%, #087eff 49%, #087eff 51%, transparent 52%),
-        linear-gradient(0deg, transparent 48%, #087eff 49%, #087eff 51%, transparent 52%);
+        linear-gradient(
+            90deg,
+            transparent 48%,
+            #087eff 49%,
+            #087eff 51%,
+            transparent 52%
+        ),
+        linear-gradient(
+            0deg,
+            transparent 48%,
+            #087eff 49%,
+            #087eff 51%,
+            transparent 52%
+        );
+
     background-size: 150px 150px;
-    mask-image: radial-gradient(circle, black 20%, transparent 75%);
+    mask-image: radial-gradient(
+        circle,
+        black 20%,
+        transparent 75%
+    );
 }
+
 
 
 
@@ -53,6 +73,7 @@ header h1 {
     font-size: 3rem;
     margin-bottom: 20px;
     color: #ffffff;
+
     text-shadow:
         0 0 10px rgba(0, 140, 255, 0.8),
         0 0 25px rgba(0, 140, 255, 0.4);
@@ -61,10 +82,13 @@ header h1 {
 header p {
     max-width: 750px;
     margin: 0 auto;
+
     font-size: 1.1rem;
     line-height: 1.7;
+
     color: #b9d9f5;
 }
+
 
 
 
@@ -76,11 +100,12 @@ main {
 
 
 
-
 .url-section {
     background: rgba(5, 20, 40, 0.85);
+
     border: 1px solid rgba(0, 140, 255, 0.45);
     border-radius: 12px;
+
     padding: 40px;
     text-align: center;
 
@@ -89,6 +114,10 @@ main {
         inset 0 0 25px rgba(0, 100, 255, 0.05);
 
     backdrop-filter: blur(8px);
+}
+
+.url-section h2 {
+    margin-bottom: 12px;
 }
 
 .url-section p {
@@ -102,14 +131,20 @@ main {
 .url-input-container {
     display: flex;
     justify-content: center;
+
     gap: 12px;
+
     max-width: 700px;
     margin: 0 auto;
 }
 
 #urlInput {
     flex: 1;
+
+    min-width: 0;
+
     padding: 15px 18px;
+
     font-size: 1rem;
 
     color: #ffffff;
@@ -117,6 +152,7 @@ main {
 
     border: 1px solid #126ccf;
     border-radius: 6px;
+
     outline: none;
 
     transition: 0.3s ease;
@@ -136,11 +172,13 @@ main {
 
 
 
+
 #exploreButton,
 #nextButton {
     padding: 15px 25px;
 
     color: #ffffff;
+
     background: linear-gradient(
         135deg,
         #0066cc,
@@ -158,7 +196,10 @@ main {
     box-shadow:
         0 0 10px rgba(0, 140, 255, 0.35);
 
-    transition: 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
 }
 
 #exploreButton:hover,
@@ -183,6 +224,16 @@ main {
 
 
 
+
+#exploreButton:focus-visible,
+#nextButton:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
+}
+
+
+
+
 .journey {
     margin-top: 40px;
     margin-bottom: 60px;
@@ -203,6 +254,7 @@ main {
 
 .journey h2 {
     color: #ffffff;
+
     font-size: 2rem;
     margin-bottom: 15px;
 
@@ -210,8 +262,12 @@ main {
         0 0 10px rgba(0, 140, 255, 0.5);
 }
 
+
+
+
 #selectedUrl {
     color: #00aaff;
+
     font-family: monospace;
     font-size: 1rem;
 
@@ -220,10 +276,14 @@ main {
     padding: 10px 15px;
 
     background: #020b16;
+
     border-left: 3px solid #008cff;
 
     border-radius: 4px;
+
+    overflow-wrap: anywhere;
 }
+
 
 
 
@@ -241,12 +301,13 @@ main {
 
     box-shadow:
         inset 0 0 20px rgba(0, 100, 255, 0.05);
+
+    animation: stageAppear 0.4s ease;
 }
-
-
 
 #stage::before {
     content: "";
+
     position: absolute;
 
     top: 0;
@@ -266,7 +327,9 @@ main {
 
 #stage h3 {
     color: #00aaff;
+
     font-size: 1.5rem;
+
     margin-bottom: 15px;
 
     text-shadow:
@@ -275,13 +338,17 @@ main {
 
 #stageDescription {
     color: #c4d8e8;
+
     line-height: 1.7;
 }
+
+
 
 #nextButton {
     display: block;
     margin-left: auto;
 }
+
 
 
 
@@ -291,30 +358,96 @@ main {
 
 
 
+
+@keyframes stageAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
 @media (max-width: 700px) {
 
     header {
-        padding-top: 50px;
+        padding: 50px 15px 35px;
     }
 
     header h1 {
         font-size: 2rem;
+        line-height: 1.2;
     }
 
     header p {
         font-size: 1rem;
     }
 
+    main {
+        width: 92%;
+    }
+
     .url-section,
     .journey {
-        padding: 25px;
+        padding: 25px 20px;
     }
 
     .url-input-container {
         flex-direction: column;
     }
 
+    #urlInput {
+        width: 100%;
+    }
+
     #exploreButton {
         width: 100%;
+    }
+
+    .journey h2 {
+        font-size: 1.6rem;
+    }
+
+    #stage {
+        padding: 25px 20px;
+    }
+
+    #stage h3 {
+        font-size: 1.3rem;
+    }
+
+    #nextButton {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+
+
+
+@media (max-width: 400px) {
+
+    header h1 {
+        font-size: 1.7rem;
+    }
+
+    header p {
+        font-size: 0.95rem;
+    }
+
+    .url-section,
+    .journey {
+        padding: 20px 15px;
+    }
+
+    #stage {
+        padding: 20px 15px;
     }
 }
