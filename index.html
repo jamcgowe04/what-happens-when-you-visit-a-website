@@ -34,21 +34,81 @@
             </div>
         </section>
         
-        <section id="journey" class="journey hidden">
+<section id="journey" class="journey hidden">
 
-            <h2>Your Website Journey</h2>
+    <h2>Website Journey</h2>
 
-            <p id="selectedUrl"></p>
+    <p id="selectedUrl"></p>
 
-            <div id="stage">
-                <h3 id="stageTitle"></h3>
-                <p id="stageDescription"></p>
-            </div>
+    <div class="progress-tracker">
 
-            <button id="nextButton">Next Step</button>
-            <button id="backButton">Back</button>
+        <div class="progress-step active">
+            <span class="progress-dot">1</span>
+            <span class="progress-label">URL</span>
+        </div>
 
-        </section>
+        <div class="progress-line"></div>
+
+        <div class="progress-step">
+            <span class="progress-dot">2</span>
+            <span class="progress-label">DNS</span>
+        </div>
+
+        <div class="progress-line"></div>
+
+        <div class="progress-step">
+            <span class="progress-dot">3</span>
+            <span class="progress-label">Connect</span>
+        </div>
+
+        <div class="progress-line"></div>
+
+        <div class="progress-step">
+            <span class="progress-dot">4</span>
+            <span class="progress-label">Request</span>
+        </div>
+
+        <div class="progress-line"></div>
+
+        <div class="progress-step">
+            <span class="progress-dot">5</span>
+            <span class="progress-label">Server</span>
+        </div>
+
+        <div class="progress-line"></div>
+
+        <div class="progress-step">
+            <span class="progress-dot">6</span>
+            <span class="progress-label">Response</span>
+        </div>
+
+        <div class="progress-line"></div>
+
+        <div class="progress-step">
+            <span class="progress-dot">7</span>
+            <span class="progress-label">Build</span>
+        </div>
+
+        <div class="progress-line"></div>
+
+        <div class="progress-step">
+            <span class="progress-dot">8</span>
+            <span class="progress-label">Website</span>
+        </div>
+
+    </div>
+
+    <div id="stage">
+        <h3 id="stageTitle"></h3>
+        <p id="stageDescription"></p>
+    </div>
+
+    <div class="journey-buttons">
+        <button id="backButton">Back</button>
+        <button id="nextButton">Next Step</button>
+    </div>
+
+</section>
 
     </main>
 

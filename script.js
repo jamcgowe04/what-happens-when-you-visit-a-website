@@ -9,8 +9,10 @@ const stageTitle = document.getElementById("stageTitle");
 const stageDescription = document.getElementById("stageDescription");
 
 const nextButton = document.getElementById("nextButton");
-
 const backButton = document.getElementById("backButton");
+
+const progressSteps = document.querySelectorAll(".progress-step");
+const progressLines = document.querySelectorAll(".progress-line");
 
 
 
@@ -89,19 +91,29 @@ exploreButton.addEventListener("click", function () {
 });
 
 
-
-
 nextButton.addEventListener("click", function () {
 
     currentStage++;
 
     if (currentStage < stages.length) {
+
         showStage(currentStage);
+
     } else {
 
         stageTitle.textContent = "Journey Complete!";
+
         stageDescription.textContent =
             "The browser has processed the resources it received and rendered the webpage. You have now followed the journey from entering a URL to seeing a website appear on your screen.";
+
+        progressSteps.forEach(function (step) {
+            step.classList.remove("active");
+            step.classList.add("completed");
+        });
+
+        progressLines.forEach(function (line) {
+            line.classList.add("completed");
+        });
 
         nextButton.style.display = "none";
     }
@@ -110,11 +122,11 @@ nextButton.addEventListener("click", function () {
 backButton.addEventListener("click", function () {
 
     if (currentStage > 0) {
-        currentStage--;
+        currentStage = currentStage - 1;
         showStage(currentStage);
     }
-});
 
+});
 
 
 function showStage(stageNumber) {
@@ -124,12 +136,35 @@ function showStage(stageNumber) {
     stageTitle.textContent = stage.title;
     stageDescription.textContent = stage.description;
 
+    progressSteps.forEach(function (step, index) {
+
+        step.classList.remove("active");
+        step.classList.remove("completed");
+
+        if (index < stageNumber) {
+            step.classList.add("completed");
+        }
+
+        if (index === stageNumber) {
+            step.classList.add("active");
+        }
+    });
+
+    progressLines.forEach(function (line, index) {
+
+        line.classList.remove("completed");
+
+        if (index < stageNumber) {
+            line.classList.add("completed");
+        }
+    });
+
+
     if (stageNumber === 0) {
         backButton.style.display = "none";
     } else {
         backButton.style.display = "block";
     }
-
 
     nextButton.style.display = "block";
 }
