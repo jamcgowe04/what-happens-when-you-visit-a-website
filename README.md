@@ -8,7 +8,7 @@ This an interactive website expirience that explains what happens behind the sce
 
 **What happens when you visit a website?** is an interactive web project that explains what happens behind the scenes when someone enters a URL and visits a website.
 
-The project guides users through a journey from entering a website address to seeing the webpage appear in their browser. It breaks the process into eight steps:
+This project guides users through a journey from entering a website address to seeing the webpage appear in their browser. It breaks the process into eight steps:
 
 1. ENtering the URL
 2. Finding the Server
