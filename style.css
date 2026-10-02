@@ -170,8 +170,27 @@ main {
         0 0 20px rgba(0, 120, 255, 0.25);
 }
 
+.url-feedback {
+    margin-top: 12px;
+    color: #ff7070;
+    font-size: 0.9rem;
+    font-weight: 500;
+    min-height: 20px;
+}
 
+.url-feedback.success {
+    color: #00d9a6
+}
 
+#urlInput.invalid{
+    border-color: #ff7070;
+    box-shadow: 0 0 8px rgba(255, 80, 80, 0.3);
+}
+
+#urlInput:focus {
+    outline: 2px solid #00aaff;
+    outline-offset: 2px;
+}
 
 #exploreButton,
 #nextButton {
@@ -204,17 +223,11 @@ main {
 
 #exploreButton:hover,
 #nextButton:hover {
-    background: linear-gradient(
-        135deg,
-        #0080ff,
-        #00b7ff
-    );
+    background: #0077dd;
 
     transform: translateY(-2px);
 
-    box-shadow:
-        0 0 15px rgba(0, 170, 255, 0.7),
-        0 0 30px rgba(0, 100, 255, 0.3);
+    box-shadow: 0 0 18px rgba(0, 170, 255, 0.5);
 }
 
 #exploreButton:active,
@@ -265,22 +278,17 @@ main {
 
 
 
+
 #selectedUrl {
-    color: #00aaff;
-
-    font-family: monospace;
-    font-size: 1rem;
-
-    margin-bottom: 30px;
-
-    padding: 10px 15px;
-
-    background: #020b16;
-
-    border-left: 3px solid #008cff;
-
-    border-radius: 4px;
-
+    margin: 15px auto 0;
+    padding: 10px 14px;
+    max-width: 700px;
+    background: rgba(2, 11, 22, 0.7);
+    border: 1px solid rgba(18, 108, 207, 0.5);
+    border-radius: 6px;
+    color: #8bcfff;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.9rem;
     overflow-wrap: anywhere;
 }
 
@@ -302,7 +310,7 @@ main {
     box-shadow:
         inset 0 0 20px rgba(0, 100, 255, 0.05);
 
-    animation: stageAppear 0.4s ease;
+    animation: stageAppear 0.35s ease;
 }
 
 #stage::before {
@@ -326,23 +334,164 @@ main {
 }
 
 #stage h3 {
-    color: #00aaff;
-
-    font-size: 1.5rem;
-
     margin-bottom: 15px;
-
-    text-shadow:
-        0 0 8px rgba(0, 170, 255, 0.5);
+    color: #00aaff;
+    font-size: 1.6rem;
+    line-height: 1.3;
+    text-shadow: 0 0 10px rgba(0, 170, 255, 0.25);
 }
 
 #stageDescription {
-    color: #c4d8e8;
+    color: #d4e5f5;
+    font-size: 1rem;
+    line-height: 1.8;
+    max-width: 850px;
+    margin: 0 auto;
+}
 
+.stage-example {
+    margin-top: 25px;
+    padding: 18px;
+    background: rgba(0, 102, 204, 0.10);
+    border-left: 3px solid #00aaff;
+    border-radius: 6px;
+    text-align: left;
+}
+
+.stage-example h4 {
+    color: #00aaff;
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+.stage-example p {
+    color: #d4e5f5;
+    font-size: 1rem;
     line-height: 1.7;
 }
 
+.network-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 30px 0;
+    padding: 25px 15px;
+    background: rgba(2, 11, 22, 0.65);
+    border: 1px solid rgba(18, 108, 207, 0.4);
+    border-radius: 8px;
+    overflow-x: auto;
+}
 
+.network-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 105px;
+    min-height: 85px;
+    padding: 10px;
+    background: #071a2d;
+    border: 1px solid #126ccf;
+    border-radius: 8px;
+    color: #ffffff;
+    transition: 0.3s ease;
+}
+
+.network-icon {
+    font-size: 1.8rem;
+    margin-bottom: 6px;
+}
+
+.network-node span {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #8bcfff;
+}
+
+.network-connection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    min-width: 80px;
+}
+
+.connection-label {
+    margin-bottom: 7px;
+    color: #66829d;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.connection-line {
+    width: 100%;
+    height: 2px;
+    background: #126ccf;
+    position: relative;
+    opacity: 0.4;
+    transition: 0.3s ease;
+}
+
+.connection-line::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: -4px;
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 7px solid #126ccf;
+}
+
+.network-node.active {
+    border-color: #00aaff;
+    box-shadow:
+        0 0 10px rgba(0, 170, 255, 0.6),
+        0 0 20px rgba(0, 100, 255, 0.25);
+    transform: translateY(-3px) scale(1.02);
+}
+
+.network-node.active span {
+    color: #00aaff;
+}
+
+.connection-line.active {
+    background: #00aaff;
+    opacity: 1;
+    box-shadow: 0 0 8px rgba(0, 170, 255, 0.5);
+}
+
+.connection-line.active::after {
+    border-left-color: #00aaff;
+}
+
+@media (max-width: 700px) {
+
+    .network-visual {
+        justify-content: flex-start;
+        padding: 20px 10px;
+    }
+
+    .network-node {
+        width: 90px;
+        min-height: 80px;
+    }
+
+    .network-icon {
+        font-size: 1.5rem;
+    }
+
+    .connection-label {
+        font-size: 0.6rem;
+    }
+
+}
 
 #nextButton {
     display: block;
@@ -626,3 +775,119 @@ main {
     box-shadow:
         0 0 6px rgba(0, 170, 255, 0.4);
 }
+
+.definition-box {
+    position: relative;
+    margin-top: 18px;
+    padding: 18px 45px 18px 18px;
+    background: rgba(0, 102, 204, 0.12);
+    border: 1px solid #126ccf;
+    border-radius: 8px;
+    text-align: left;
+    box-shadow: 0 0 15px rgba(0, 140, 255, 0.12);
+    animation: stageAppear 0.3s ease;
+}
+
+.definition-box h4 {
+    margin-bottom: 8px;
+    color: #00aaff;
+    font-size: 1rem;
+}
+
+.definition-box h5 {
+    margin-bottom: 8px;
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+.definition-box p {
+    color: #d4e5f5;
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+#closeDefinition {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    padding: 2px 7px;
+    background: transparent;
+    border: none;
+    color: #66829d;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+#closeDefinition:hover {
+    color: #ffffff;
+}
+
+#closeDefinition:focus-visible {
+    outline: 2px solid #00aaff;
+    outline-offset: 2px;
+}
+
+.hidden {
+    display: none;
+}
+
+.definition-term {
+    padding: 0;
+    background: transparent;
+    border: none;
+    color: #00aaff;
+    font: inherit;
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-underline-offset: 3px;
+    cursor: pointer;
+}
+
+.definition-term:hover {
+    color: #8bcfff;
+    text-shadow: 0 0 8px rgba(0, 170, 255, 0.5);
+}
+
+.definition-term:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+.completion-message {
+    margin-top: 25px;
+    padding: 20px;
+    background: rgba(0, 102, 204, 0.10);
+    border: 1px solid rgba(18, 108, 207, 0.5);
+    border-radius: 8px;
+    text-align: left;
+    animation: stageAppear 0.4s ease;
+}
+
+.completion-message h4 {
+    margin-bottom: 12px;
+    color: #00aaff;
+    font-size: 1rem;
+}
+
+.completion-message ul {
+    margin-left: 20px;
+}
+
+.completion-message li {
+    margin-bottom: 8px;
+    color: #d4e5f5;
+    line-height: 1.5;
+}
+
+.completion-message li:last-child {
+    margin-bottom: 0;
+}
+
+.network-visual {
+    box-shadow:
+        inset 0 0 20px rgba(0, 100, 255, 0.05),
+        0 0 12px rgba(0, 100, 255, 0.08);
+}
+

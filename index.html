@@ -28,10 +28,14 @@
                     type="text"
                     id="urlInput"
                     placeholder="https://example.com"
+                    aria-label="Enter a website URL"
+                    aria-describedby="urlFeedback"
+                    autocomplete="url"
                     >
 
                     <button id="exploreButton">Explore</button>
             </div>
+            <p id="urlFeedback" class="url-feedback" role="alert" aria-live="polite"></p>
         </section>
         
 <section id="journey" class="journey hidden">
@@ -99,9 +103,56 @@
     </div>
 
     <div id="stage">
-        <h3 id="stageTitle"></h3>
-        <p id="stageDescription"></p>
+
+    <h3 id="stageTitle"></h3>
+
+    <p id="stageDescription"></p>
+
+    <div class="network-visual" aria-label="Visual representation of the browser, DNS, and web server communication">
+
+        <div class="network-node browser-node">
+            <div class="network-icon">💻</div>
+            <span>Browser</span>
+        </div>
+
+        <div class="network-connection connection-browser-dns">
+            <span class="connection-label">URL</span>
+            <div class="connection-line"></div>
+        </div>
+
+        <div class="network-node dns-node">
+            <div class="network-icon">🔎</div>
+            <span>DNS</span>
+        </div>
+
+        <div class="network-connection connection-dns-server">
+            <span class="connection-label">IP Address</span>
+            <div class="connection-line"></div>
+        </div>
+
+        <div class="network-node server-node">
+            <div class="network-icon">🖥️</div>
+            <span>Web Server</span>
+        </div>
+
     </div>
+
+
+
+
+    <div id="definitionBox" class="definition-box hidden">
+        <button id="closeDefinition" aria-label="Close definition">&times;</button>
+
+        <h4>What this means</h4>
+
+        <h5 id="definitionTitle"></h5>
+
+        <p id="definitionText"></p>
+    </div>
+
+    </div>
+
+</div>
 
     <div class="journey-buttons">
         <button id="backButton">Back</button>
